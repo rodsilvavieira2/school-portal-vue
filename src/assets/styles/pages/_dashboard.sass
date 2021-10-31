@@ -1,0 +1,17 @@
+.dashboard
+  display: flex
+  overflow: hidden
+
+  &-main-content
+    display: flex
+    flex-direction: column
+    width: 100%
+
+  &-inner-container
+    height: calc(100vh - 6rem)
+    width: 100%
+    overflow-y: auto
+    padding: 0 0.7rem 0.7rem 0.7rem
+
+    > div + div
+      margin-top: 2rem

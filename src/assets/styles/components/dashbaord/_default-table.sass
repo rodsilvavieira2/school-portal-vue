@@ -1,0 +1,66 @@
+.dashboard-default-table
+  padding-bottom: 0.5rem
+  
+  &-wrapper
+    background-color: $gray-700
+    padding: 1rem
+    margin-top: 1rem
+    border-radius: 0.5rem
+
+    box-shadow: $shadown-1
+
+    max-height: 15.875rem
+
+    overflow-y: auto
+
+    table
+      position: relative
+      border-collapse: collapse
+      width: 100%
+      text-align: left
+      white-space: nowrap
+
+      thead
+        top: 0
+        position: sticky
+        background-color: $gray-700
+        border-bottom: 1px solid $gray-400
+
+        th
+          font-size: 1.1rem
+          padding-bottom: 1rem
+          vertical-align: middle
+
+      tbody
+        tr:first-child
+          td
+            padding-top: 1rem
+
+            color: #d2d2d2
+        td
+          padding: 0.3rem 0
+          vertical-align: middle
+
+  &-view-button
+    display: flex
+    align-items: center
+    justify-content: center
+
+    font-size: 1rem
+
+    padding: 0.5rem
+    border: 0
+    border-radius: 0.3rem
+
+    transition: all 0.3s
+    outline: none
+
+    &:focus
+      box-shadow: $outline-shadown
+
+    &:hover
+      background-color: $gray-400
+
+    svg
+      flex-shrink: 0
+      color: $blue-500

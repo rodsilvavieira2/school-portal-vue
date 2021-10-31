@@ -1,0 +1,100 @@
+.dashboard-sidebar
+  padding: 0.7rem
+  width: 20%
+  transition: all 0.5s ease
+  flex-shrink: 0
+
+  &-container
+    border-radius: 0.5rem
+    background-color: $gray-700
+    height: 100%
+    width: 100%
+    transition: all 0.5s ease
+
+    box-shadow: $shadown-1
+
+  &-header
+    padding: 1rem
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    div
+      overflow: hidden
+      display: flex
+      align-items: center
+
+    img
+      height: auto
+      width: 35px
+      margin-right: 0.5rem
+
+    p
+      font-weight: 600
+      font-size: 1.2rem
+
+    button
+      flex-shrink: 0
+
+  &-body
+    padding: 0.5rem
+
+    > li + li
+      margin-top: 1rem
+
+  &-nav-link
+    a
+      display: flex
+      align-items: center
+      width: 100%
+      min-height: 3rem
+      outline: none
+
+      padding: 0 0.5rem
+      border-radius: 0.5rem
+      white-space: nowrap
+
+      box-shadow: $shadown-1
+
+      overflow: hidden
+
+      transition: width 0.5s ease, background 0.3s
+      span
+        transition: all 0.3s ease
+        opacity: 1
+
+      &:hover , &:focus
+        background-color: $blue-400
+
+      svg
+        margin-right: 0.7rem
+        color: $gray-300
+
+.collapse-sidebar
+  width: 6.5rem
+
+  .dashboard-sidebar-container
+    width: 5rem
+
+  .dashboard-sidebar-header
+    justify-content: center
+
+    div
+      display: none
+
+  .dashboard-sidebar-nav-link
+    display: flex
+    align-items: center
+    justify-content: center
+
+    a
+      justify-content: center
+      width: 3rem
+      border-radius: 3rem
+      transition: all 1s ease
+
+      span
+        display: none
+
+      svg
+        margin: 0

@@ -1,0 +1,29 @@
+.login-view
+  display: flex
+  align-items: center
+  justify-content: center
+
+  height: 100vh
+  width: 100vw
+
+  background-color: $primary-color
+  color: $primary-text
+
+  .login-form-wrapper
+    padding: 1rem
+    border-radius: 0.3rem
+
+    width: 100%
+    max-width: 85%
+
+    background-color: $gray-900
+    box-shadow: $shadown-1
+
+    @media (min-width: $break-p-sm)
+      max-width: 60%
+
+    @media (min-width: $break-p-md)
+      max-width: 50%
+
+    @media (min-width: $break-p-lg)
+      max-width: 30%
