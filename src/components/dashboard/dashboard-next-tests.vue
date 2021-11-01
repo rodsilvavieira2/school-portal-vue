@@ -2,7 +2,7 @@
   <div class="dashboard-default-table">
     <h2>Next tests</h2>
 
-    <div class="dashboard-default-table-wrapper">
+    <div class="dashboard-default-table-wrapper home-table-wrapper">
       <table>
         <thead>
           <tr>

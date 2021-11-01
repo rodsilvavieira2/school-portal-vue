@@ -2,18 +2,10 @@
   <div class="dashboard-default-table">
     <h2>Last exercises</h2>
 
-    <div class="dashboard-default-table-wrapper">
+    <div class="dashboard-default-table-wrapper home-table-wrapper">
       <table>
         <thead>
           <tr>
-            <th>
-              <CheckBox
-                type="checkbox"
-                v-model="isAllChecked"
-                @click.prevent="toggleAllChecked"
-              />
-            </th>
-
             <th>Exercise Name</th>
 
             <th>Professor</th>
@@ -28,10 +20,6 @@
 
         <tbody>
           <tr v-for="item in items" :key="item.id">
-            <td>
-              <CheckBox v-model="item.isChecked" />
-            </td>
-
             <td>{{ item.name }}</td>
 
             <td>{{ item.professor }}</td>
@@ -41,9 +29,14 @@
             <td>{{ item.status }}</td>
 
             <td>
-              <button type="submit" class="dashboard-default-table-view-button">
-                <fa icon="eye" />
-              </button>
+              <div class="dashboard-default-table-button-wrapper">
+                <button
+                  type="submit"
+                  class="dashboard-default-table-button"
+                >
+                  <fa icon="eye" />
+                </button>
+              </div>
             </td>
           </tr>
         </tbody>
@@ -53,36 +46,7 @@
 </template>
 
 <script>
-import { CheckBox } from '../from'
-
 export default {
-  components: {
-    CheckBox
-  },
-  methods: {
-    toggleAllChecked () {
-      console.log('call')
-      if (this.isAllChecked) {
-        this.items = this.items.map((item) => ({
-          ...item,
-          isChecked: false
-        }))
-      } else {
-        this.items = this.items.map((item) => ({
-          ...item,
-          isChecked: true
-        }))
-      }
-    }
-  },
-  watch: {
-    items: {
-      handler () {
-        this.isAllChecked = this.items.every((item) => item.isChecked)
-      },
-      deep: true
-    }
-  },
   data () {
     return {
       items: [
@@ -118,8 +82,7 @@ export default {
           discipline: 'Web development',
           status: 'Pending'
         }
-      ],
-      isAllChecked: false
+      ]
     }
   }
 }

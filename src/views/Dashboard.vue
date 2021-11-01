@@ -6,33 +6,19 @@
       <dashboard-header />
 
       <div class="dashboard-inner-container">
-        <DashboardLastExercises />
-
-        <DashBoardNextTests />
+        <router-view />
       </div>
     </main>
   </div>
 </template>
 
 <script>
-import {
-  DashboardHeader,
-  DashboardSidebar,
-  DashboardLastExercises,
-  DashBoardNextTests
-} from '../components'
+import { DashboardHeader, DashboardSidebar } from '../components'
 
 export default {
   components: {
     DashboardHeader,
-    DashboardSidebar,
-    DashboardLastExercises,
-    DashBoardNextTests
-  },
-  date () {
-    return {
-      date: new Date()
-    }
+    DashboardSidebar
   }
 }
 </script>

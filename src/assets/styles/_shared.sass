@@ -12,3 +12,24 @@ button[disable]
 
 button
   cursor: pointer
+
+*
+  &::-webkit-scrollbar
+    width: 5px
+    height: 5px
+
+  &::-webkit-scrollbar-track
+    background: transparent
+
+  &::-webkit-scrollbar-thumb
+    background: $blue-400
+    border-radius: 0.3rem
+
+.sub-router-container
+  position: absolute
+  padding: 0.7rem
+  inset: 0
+  overflow-y: auto
+
+  > * + *
+    margin-top: .7rem

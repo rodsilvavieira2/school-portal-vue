@@ -1,0 +1,41 @@
+.default-select
+  display: inline-flex
+  align-items: center
+
+  span
+    display: inline-block
+
+    margin-right: 0.3rem
+
+    font-weight: 500
+    color: $gray-300
+
+  .select-wrapper
+    height: 2.5rem
+    min-width: 8rem
+
+    border: 3px solid $gray-500
+    border-radius: 0.3rem
+    background-color: $gray-600
+
+    font-family: inherit
+
+    transition: all 0.3s
+
+    &:focus-within
+      box-shadow: $outline-shadown
+
+    select
+      height: 100%
+      width: 100%
+   
+      font-weight: 500
+      color: #fff
+      background-color: inherit
+      font-size: 0.95rem
+   
+      outline: transparent
+      cursor: pointer
+
+      option
+        background-color: inherit

@@ -16,13 +16,17 @@
       </header>
 
       <ul class="dashboard-sidebar-body">
-        <dashboard-nav-link
+        <li
           v-for="item in navLinks"
+          class="dashboard-sidebar-nav-link"
           :key="item.id"
-          :icon="item.icon"
-          :label="item.label"
-          :to="item.to"
-        />
+        >
+          <router-link tabindex="0" :to="item.to">
+            <fa :icon="item.icon" />
+
+            <span> {{ item.label }} </span>
+          </router-link>
+        </li>
       </ul>
     </div>
   </aside>
@@ -30,7 +34,6 @@
 
 <script>
 import { IconButton } from '../from'
-import DashboardNavLink from './dashboard-nav-link.vue'
 
 export default {
   data () {
@@ -39,46 +42,51 @@ export default {
       navLinks: [
         {
           id: 1,
-          label: 'Classes',
-          icon: 'school',
-          to: '/classes'
+          label: 'Home',
+          icon: 'home',
+          to: '/dashboard'
         },
         {
           id: 2,
-          label: 'Exercises',
-          icon: 'book-open',
-          to: '/exercises'
+          label: 'Classes',
+          icon: 'school',
+          to: '/dashboard/classes'
         },
         {
           id: 3,
-          label: 'Report card',
-          icon: 'address-card',
-          to: '/report-card'
+          label: 'Exercises',
+          icon: 'book-open',
+          to: '/dashboard/exercises'
         },
         {
           id: 4,
-          label: 'School subjects',
-          icon: 'book',
-          to: '/school-subjects'
+          label: 'Report card',
+          icon: 'address-card',
+          to: '/dashboard/report-card'
         },
         {
           id: 5,
-          label: 'Note Detailing',
-          icon: 'clipboard',
-          to: '/note-detailing'
+          label: 'School subjects',
+          icon: 'book',
+          to: '/dashboard/school-subjects'
         },
         {
           id: 6,
+          label: 'Note Detailing',
+          icon: 'clipboard',
+          to: '/dashboard/note-detailing'
+        },
+        {
+          id: 7,
           label: 'Performance Charts',
           icon: 'chart-line',
-          to: '/performance charts'
+          to: '/dashboard/performance-charts'
         }
       ]
     }
   },
   components: {
-    IconButton,
-    DashboardNavLink
+    IconButton
   },
   methods: {
     collapseSidebar () {

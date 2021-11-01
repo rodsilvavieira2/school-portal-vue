@@ -15,7 +15,32 @@ const routes = [
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: () => import('../views/Dashboard.vue')
+    component: () => import('../views/Dashboard.vue'),
+    children: [
+      {
+        path: '',
+        component: () =>
+          import('../views/dashboard-sub-routes/DashboardHome.vue')
+      },
+      {
+        path: 'classes',
+        component: () => import('../views/dashboard-sub-routes/Classes.vue')
+      },
+      {
+        path: 'exercises',
+        component: () => import('../views/dashboard-sub-routes/Exercises.vue')
+      },
+      {
+        path: 'school-subjects',
+        component: () =>
+          import('../views/dashboard-sub-routes/ShoolSubjects.vue')
+      },
+      {
+        path: 'performance-charts',
+        component: () =>
+          import('../views/dashboard-sub-routes/PerformanceCharts.vue')
+      }
+    ]
   }
 ]
 
