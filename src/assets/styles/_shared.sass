@@ -22,7 +22,8 @@ button
     background: transparent
 
   &::-webkit-scrollbar-thumb
-    background: $blue-400
+    background: $blue-600
+    box-shadow: $neon-blue-100
     border-radius: 0.3rem
 
 .sub-router-container
@@ -30,6 +31,12 @@ button
   padding: 0.7rem
   inset: 0
   overflow-y: auto
+
+  h2
+    font-size: 1.5rem
+    border-bottom: 1px solid $gray-500
+    padding-bottom: 0.5rem
+    margin-bottom: 1.5rem
 
   > * + *
     margin-top: .7rem

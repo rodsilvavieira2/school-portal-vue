@@ -36,9 +36,12 @@ const routes = [
           import('../views/dashboard-sub-routes/ShoolSubjects.vue')
       },
       {
-        path: 'performance-charts',
-        component: () =>
-          import('../views/dashboard-sub-routes/PerformanceCharts.vue')
+        path: 'report-card',
+        component: () => import('../views/dashboard-sub-routes/ReportCard.vue')
+      },
+      {
+        path: 'profile',
+        component: () => import('../views/dashboard-sub-routes/Profile.vue')
       }
     ]
   }

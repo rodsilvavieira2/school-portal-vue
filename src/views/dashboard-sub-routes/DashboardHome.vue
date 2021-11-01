@@ -1,17 +1,12 @@
 <template>
-  <div class="sub-router-container home">
+  <div class="sub-router-container sub-router-home">
+    <h2>Home</h2>
+
     <DashboardLastExercises />
 
     <DashBoardNextTests />
   </div>
 </template>
-
-<style lang="sass">
-
-.home
-  > div + div
-    margin-top: 2rem
-</style>
 
 <script>
 import {

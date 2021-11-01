@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-default-table">
-    <h2>Next tests</h2>
+    <h3>Next tests</h3>
 
     <div class="dashboard-default-table-wrapper home-table-wrapper">
       <table>

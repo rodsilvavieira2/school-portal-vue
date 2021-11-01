@@ -15,12 +15,8 @@
         />
       </header>
 
-      <ul class="dashboard-sidebar-body">
-        <li
-          v-for="item in navLinks"
-          class="dashboard-sidebar-nav-link"
-          :key="item.id"
-        >
+      <ul class="dashboard-sidebar-body" role="navigation">
+        <li v-for="item in navLinks" :class="navItemIsActive(item.to)" :key="item.id">
           <router-link tabindex="0" :to="item.to">
             <fa :icon="item.icon" />
 
@@ -39,6 +35,7 @@ export default {
   data () {
     return {
       isSidebarCollapsed: false,
+      currentPage: window.location.pathname,
       navLinks: [
         {
           id: 1,
@@ -69,24 +66,17 @@ export default {
           label: 'School subjects',
           icon: 'book',
           to: '/dashboard/school-subjects'
-        },
-        {
-          id: 6,
-          label: 'Note Detailing',
-          icon: 'clipboard',
-          to: '/dashboard/note-detailing'
-        },
-        {
-          id: 7,
-          label: 'Performance Charts',
-          icon: 'chart-line',
-          to: '/dashboard/performance-charts'
         }
       ]
     }
   },
   components: {
     IconButton
+  },
+  watch: {
+    $route (to) {
+      this.currentPage = to.path
+    }
   },
   methods: {
     collapseSidebar () {
@@ -96,6 +86,11 @@ export default {
     },
     toggleIsSidebarCollapsed () {
       this.isSidebarCollapsed = !this.isSidebarCollapsed
+    },
+    navItemIsActive (location) {
+      return location === this.currentPage
+        ? 'dashboard-sidebar-nav-link active-nav-link'
+        : 'dashboard-sidebar-nav-link'
     }
   }
 }

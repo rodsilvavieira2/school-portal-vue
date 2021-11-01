@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-default-table">
-    <h2>Last exercises</h2>
+    <h3>Last exercises</h3>
 
     <div class="dashboard-default-table-wrapper home-table-wrapper">
       <table>

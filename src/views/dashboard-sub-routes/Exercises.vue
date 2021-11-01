@@ -1,6 +1,6 @@
 <template>
   <div class="sub-router-container exercises-sub-router">
-    <h2>Classes</h2>
+    <h2>Exercises</h2>
 
     <div class="default-select-period">
       <Select label="Time interval :">
@@ -21,8 +21,6 @@
     </div>
 
     <div class="dashboard-default-table exercises-table">
-      <h2>List</h2>
-
       <div class="dashboard-default-table-wrapper">
         <table>
           <thead>

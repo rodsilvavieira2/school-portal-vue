@@ -1,0 +1,82 @@
+.home-page
+  overflow-y: auto
+
+  .home-header
+    position: sticky
+    top: 0
+    left: 0
+    right: 0
+
+    &-container
+      display: flex
+      align-items: center
+      justify-content: space-between
+
+      background-color: $gray-600
+      height: 5rem
+      color: #fff
+      padding: 0 1rem
+      box-shadow: $shadown-1
+
+    &-logo-wrapper
+      display: flex
+      align-items: center
+
+      img
+        height: 3rem
+        width: 3rem
+        margin-right: 0.5rem
+
+      strong
+        font-size: 1.1rem
+
+    &-nav
+      ul
+        display: flex
+        align-items: center
+        list-style: none
+
+        > li  + li
+          margin-left: 1rem
+
+      &-link
+        border-radius: 0.3rem
+        padding: 0.7rem 1rem
+        background-color: $blue-600
+        box-shadow: $neon-blue-100
+  &-main
+    display: flex
+    height: calc( 100vh - 5rem )
+
+    > div
+      display: flex
+      align-items: center
+      justify-content: center
+
+      flex: 1 0 auto
+      width: 50%
+
+    &-image
+      img
+        max-width: 90%
+        max-height: 90%
+
+    &-text
+      flex-direction: column
+
+      h2
+        font-size: 2.5rem
+      h3
+        font-size: 1.7rem
+        color: $gray-300
+
+  &-footer
+    display: flex
+    padding: 1rem
+    background-color: $gray-700
+    height: 30vh
+
+    strong
+      margin-top: auto
+
+    

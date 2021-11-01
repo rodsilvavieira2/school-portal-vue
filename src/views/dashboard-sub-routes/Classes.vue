@@ -21,7 +21,6 @@
     </div>
 
     <div class="dashboard-default-table classes-table">
-      <h2>List</h2>
 
       <div class="dashboard-default-table-wrapper">
         <table>

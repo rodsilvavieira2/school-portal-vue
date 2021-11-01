@@ -1,0 +1,97 @@
+.profile-form
+  display: flex
+  > div
+    flex: 1 0 auto
+    width: 50%
+
+  &-avatar
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    height: 100%
+
+    strong
+      font-size: 1.5rem
+      margin-top: 0.5rem
+
+  &-img-wrapper
+    position: relative
+
+    width: 11rem
+    height: 11rem
+
+    border-radius: 11rem
+
+    overflow: hidden
+
+    cursor: pointer
+
+    &:hover
+      .profile-form-img-wrapper-overlay
+        opacity: 1
+        visibility: visible
+      img
+        transform: scale(1.1)
+
+    img
+      max-height: 100%
+      transition: transform 0.3s ease-in
+
+    input
+      position: absolute
+      appearance: none
+      width: 0
+      height: 0
+
+    &-overlay
+      display: flex
+      align-items: center
+      justify-content: center
+
+      position: absolute
+      inset: 0
+      background-color: rgba(0,0 ,0 ,0.6 )
+
+      z-index: 1
+
+      opacity: 0
+      visibility: hidden
+
+      transition: all 0.3s
+
+      svg
+        font-size: 2.5rem
+        color: $gray-500
+
+  &-info
+    padding: 1rem
+    > * + *
+      margin-top: 0.5rem
+
+    h3
+      font-size: 1.5rem
+
+    &-input-group
+      font-weight: 500
+
+      input
+        display: block
+        width: 100%
+
+        font-family: inherit
+        font-size: 0.9rem
+        font-weight: 400
+
+        margin-top: 0.3rem
+        border-radius: 0.3rem
+        border: 3px solid $gray-500
+        padding: 0.3rem 0.5rem
+
+        outline: transparent
+
+        transition: all 0.3s
+
+        &:focus
+          box-shadow: $outline-shadown
