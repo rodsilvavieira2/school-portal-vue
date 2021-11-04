@@ -10,7 +10,7 @@
           <fa icon="sign-out-alt" />
         </button>
 
-        <button class="dashboard-header-button" aria-label="show notifications">
+        <button @click="initToast" class="dashboard-header-button" aria-label="show notifications">
           <fa icon="bell" />
         </button>
 
@@ -24,7 +24,7 @@
 
 <script>
 import { Avatar } from '../from'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   components: {
@@ -34,7 +34,15 @@ export default {
     async signOut () {
       this.$router.push({ name: 'Home' })
     },
-    ...mapGetters(['getUserProfileData'])
+    ...mapGetters(['getUserProfileData']),
+    ...mapMutations(['makeToast']),
+    initToast () {
+      this.makeToast({
+        status: 'info',
+        title: 'Test',
+        text: 'test test'
+      })
+    }
   },
   computed: {
     user () {

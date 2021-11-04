@@ -40,3 +40,105 @@ button
 
   > * + *
     margin-top: .7rem
+
+.default-container-toast
+  @include flex-center()
+
+  position: absolute
+
+  z-index: 99999
+
+  pointer-events: none
+
+  right: 0
+  left: 0
+  bottom: 0
+
+  padding: 0 1rem
+  padding-bottom: 1rem
+
+  ul
+    display: flex
+    flex-direction: column-reverse
+
+    li + li
+      margin-bottom: 1rem
+
+  &-item
+    display: flex
+
+    position: relative
+
+    padding: 0.3rem
+    border-radius: 0.3rem
+
+    color: #ffff
+
+    min-width: 15rem
+    width: 100%
+
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px
+    pointer-events: all
+
+    &-icon
+      display: flex
+      align-items: center
+      justify-content: center
+
+      padding: 0.4rem 0.6rem
+
+      height: 100%
+
+      svg
+        font-size: 1.1rem
+        flex-shrink: 0
+        margin-bottom: auto
+
+    &-text
+
+      p
+        color: $gray-200
+        font-size: 0.95rem
+
+    &-button
+      display: flex
+      align-items: center
+      justify-content: center
+
+      position: absolute
+
+      top: 0.5rem
+      right: 0.5rem
+
+      height: 1.1rem
+      width: 1.1rem
+
+      border: 0
+      border-radius: 0.3rem
+      padding: 0.2rem
+
+      color: $gray-600
+
+@keyframes toast-enter
+  0%
+    transform: translateY(50px)
+    opacity: 0
+
+  50%
+    opacity: 0.5
+
+  100%
+    opacity: 1
+    transform: translateY(0)
+
+@keyframes toast-exit
+  0%
+    transform: translateY(0)
+    opacity: 1
+
+  50%
+    opacity: 0.5
+
+  100%
+    opacity: 0
+    transform: translateY(50px)
