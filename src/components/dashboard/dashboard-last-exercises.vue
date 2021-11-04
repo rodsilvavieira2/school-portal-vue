@@ -19,21 +19,22 @@
         </thead>
 
         <tbody>
-          <tr v-for="item in items" :key="item.id">
+          <tr v-for="item in exercises" :key="item.id">
             <td>{{ item.name }}</td>
 
             <td>{{ item.professor }}</td>
 
             <td>{{ item.discipline }}</td>
 
-            <td>{{ item.status }}</td>
+            <td>
+              <div :class="['status', getStatusClass(item.status)]">
+                {{ item.status }}
+              </div>
+            </td>
 
             <td>
               <div class="dashboard-default-table-button-wrapper">
-                <button
-                  type="submit"
-                  class="dashboard-default-table-button"
-                >
+                <button class="dashboard-default-table-button">
                   <fa icon="eye" />
                 </button>
               </div>
@@ -41,48 +42,42 @@
           </tr>
         </tbody>
       </table>
+
+      <DashboardTableLoading />
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import DashboardTableLoading from './dashboard-table-loading.vue'
+
 export default {
+  components: {
+    DashboardTableLoading
+  },
+  methods: {
+    ...mapGetters(['getLastExercises', 'getIsLoading']),
+    getStatusClass (status) {
+      return this.statusClasses[status]
+    }
+  },
   data () {
     return {
-      items: [
-        {
-          id: 1,
-          isChecked: false,
-          name: 'Create a web page',
-          professor: 'Andre',
-          discipline: 'Web development',
-          status: 'Pending'
-        },
-        {
-          id: 2,
-          isChecked: false,
-          name: 'Create a flask Rest IPA',
-          professor: 'Andre',
-          discipline: 'Web development',
-          status: 'Pending'
-        },
-        {
-          id: 3,
-          isChecked: false,
-          name: 'Create a crud with python',
-          professor: 'Andre',
-          discipline: 'Web development',
-          status: 'Pending'
-        },
-        {
-          id: 4,
-          isChecked: false,
-          name: 'Create database table with SQL',
-          professor: 'Andre',
-          discipline: 'Web development',
-          status: 'Pending'
-        }
-      ]
+      statusClasses: {
+        pending: 'status-pending',
+        done: 'status-done',
+        late: 'status-late',
+        close: 'status-close'
+      }
+    }
+  },
+  computed: {
+    exercises () {
+      return this.getLastExercises()
+    },
+    isLoading () {
+      return this.getIsLoading()
     }
   }
 }

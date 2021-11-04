@@ -14,11 +14,18 @@
 
 <script>
 import { DashboardHeader, DashboardSidebar } from '../components'
+import { mapActions } from 'vuex'
 
 export default {
   components: {
     DashboardHeader,
     DashboardSidebar
+  },
+  methods: {
+    ...mapActions(['getCurrentUser'])
+  },
+  mounted () {
+    this.getCurrentUser({ id: 1 })
   }
 }
 </script>

@@ -24,24 +24,40 @@
           </thead>
 
           <tbody>
-            <tr>
-              <td>Project management</td>
+            <tr v-for="item in tests" :key="item.id">
+              <td>{{ item.discipline }}</td>
 
-              <td>10</td>
-
-              <td>10</td>
-
-              <td>10</td>
-
-              <td>10</td>
+              <td v-for="(note , i) in item.notes" :key="i" >{{ note }}</td>
 
               <td>-</td>
 
-              <td>10</td>
+              <td>{{ item.finalNote }}</td>
             </tr>
           </tbody>
         </table>
+
+        <DashboardTableLoading />
+
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+import { DashboardTableLoading } from '../../components'
+
+export default {
+  components: {
+    DashboardTableLoading
+  },
+  methods: {
+    ...mapGetters(['getTests'])
+  },
+  computed: {
+    tests () {
+      return this.getTests()
+    }
+  }
+}
+</script>

@@ -40,46 +40,102 @@
           </thead>
 
           <tbody>
-            <tr>
+            <tr v-for="item in exercises" :key="item.id">
               <td>
-                <time> Project in flask + Mysql </time>
+                <p>{{ item.name }}</p>
               </td>
 
               <td class="exercises-table-discipline-row">
-                <p>APLICATIVOS PARA DESENVOLVIMENTO DE SISTEMAS LOCAL E WEB</p>
+                <p>{{ item.discipline }}</p>
               </td>
 
               <td>
-                <time>2020/10/01</time>
+                <time>{{ item.request_at }}</time>
               </td>
 
               <td>
-                <time>2020/10/02</time>
+                <time>{{ item.end_date }}</time>
               </td>
 
-              <td>Pending</td>
+              <td>
+                <div :class="['status', getStatusClass(item.status)]">
+                  {{ item.status }}
+                </div>
+              </td>
 
               <td>
                 <div class="dashboard-default-table-button-wrapper">
-                  <button class="dashboard-default-table-button">
-                    <fa icon="paperclip" />
+                  <button
+                    aria-label="show current exercise response"
+                    @click="openModal(item.id)"
+                    class="dashboard-default-table-button"
+                  >
+                    <fa icon="inbox" />
                   </button>
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
+
+        <DashboardTableLoading />
+
+        <ExerciseResponseModal
+          @on-request-close="onRequestClose"
+          :isModalOpen="isModalOpen"
+          :currentResponses="currentResponses"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { Select } from '../../components/from'
+import { mapGetters } from 'vuex'
+import {
+  Select,
+  DashboardTableLoading,
+  ExerciseResponseModal
+} from '../../components'
 
 export default {
   components: {
-    Select
+    Select,
+    DashboardTableLoading,
+    ExerciseResponseModal
+  },
+  methods: {
+    ...mapGetters(['getExercises']),
+    openModal (id) {
+      const responses = this.exercises.find((item) => item.id === id).responses
+
+      this.currentResponses = responses
+
+      this.isModalOpen = true
+    },
+    onRequestClose () {
+      this.isModalOpen = false
+    },
+    getStatusClass (status) {
+      return this.statusClasses[status]
+    }
+  },
+  data () {
+    return {
+      isModalOpen: false,
+      currentResponses: [],
+      statusClasses: {
+        pending: 'status-pending',
+        done: 'status-done',
+        late: 'status-late',
+        close: 'status-close'
+      }
+    }
+  },
+  computed: {
+    exercises () {
+      return this.getExercises()
+    }
   }
 }
 </script>

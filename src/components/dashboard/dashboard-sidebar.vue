@@ -1,5 +1,5 @@
 <template>
-  <aside :class="collapseSidebar()">
+  <aside :class="['dashboard-sidebar', shouldCollapseSidebar]">
     <div class="dashboard-sidebar-container">
       <header class="dashboard-sidebar-header">
         <div>
@@ -16,7 +16,11 @@
       </header>
 
       <ul class="dashboard-sidebar-body" role="navigation">
-        <li v-for="item in navLinks" :class="navItemIsActive(item.to)" :key="item.id">
+        <li
+          v-for="item in navLinks"
+          :class="['dashboard-sidebar-nav-link', navItemIsActive(item.to)]"
+          :key="item.id"
+        >
           <router-link tabindex="0" :to="item.to">
             <fa :icon="item.icon" />
 
@@ -78,19 +82,17 @@ export default {
       this.currentPage = to.path
     }
   },
+  computed: {
+    shouldCollapseSidebar () {
+      return this.isSidebarCollapsed ? 'collapse-sidebar' : ''
+    }
+  },
   methods: {
-    collapseSidebar () {
-      return this.isSidebarCollapsed
-        ? 'dashboard-sidebar  collapse-sidebar'
-        : 'dashboard-sidebar'
-    },
     toggleIsSidebarCollapsed () {
       this.isSidebarCollapsed = !this.isSidebarCollapsed
     },
     navItemIsActive (location) {
-      return location === this.currentPage
-        ? 'dashboard-sidebar-nav-link active-nav-link'
-        : 'dashboard-sidebar-nav-link'
+      return location === this.currentPage ? 'active-nav-link' : ''
     }
   }
 }

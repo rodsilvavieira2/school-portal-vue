@@ -1,7 +1,8 @@
 <template>
-  <button :disabled="isLoading" :type="type" class="default-button">
-    {{ showLoadingStatus }}
+  <button :disabled="isLoading" :type="type" class="login-button">
     <div v-if="isLoading" class="spinner" />
+
+    <slot v-else />
   </button>
 </template>
 
@@ -26,10 +27,6 @@
 <script>
 export default {
   props: {
-    text: {
-      type: String,
-      required: true
-    },
     type: {
       type: String,
       default: 'button'
@@ -37,11 +34,6 @@ export default {
     isLoading: {
       type: Boolean,
       default: false
-    }
-  },
-  computed: {
-    showLoadingStatus () {
-      return this.isLoading ? null : this.text
     }
   }
 }

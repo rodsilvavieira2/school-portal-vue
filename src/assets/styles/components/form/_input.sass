@@ -12,12 +12,33 @@
     margin-top: 0.5rem
     border-radius: 0.3rem
     border: 0
-    
+
     padding: 0.6rem
     outline: none
+    
     font-family: inherit
     font-size: 1rem
+
     transition: 0.3s
 
     &:focus
       box-shadow: $outline-shadown
+
+  &-error-message
+    margin-top: 0.5rem
+    font-size: 0.95rem
+    color: $red-500
+    animation: fade 0.3s ease-in
+
+  &-error
+    box-shadow: $outline-shadown-error
+
+    &:focus
+      box-shadow: $outline-shadown-error !important
+
+@keyframes fade
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+    

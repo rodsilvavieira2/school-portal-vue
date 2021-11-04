@@ -15,7 +15,7 @@
         </button>
 
         <router-link to="/dashboard/profile">
-          <avatar name="Jessica Nunes" />
+          <avatar :name="user.name" />
         </router-link>
       </div>
     </div>
@@ -24,6 +24,7 @@
 
 <script>
 import { Avatar } from '../from'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -32,6 +33,12 @@ export default {
   methods: {
     async signOut () {
       this.$router.push({ name: 'Home' })
+    },
+    ...mapGetters(['getUserProfileData'])
+  },
+  computed: {
+    user () {
+      return this.getUserProfileData()
     }
   }
 }

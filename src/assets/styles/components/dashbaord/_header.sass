@@ -2,8 +2,8 @@
   padding: .7rem
 
   &-container
-    display: flex
-    align-items: center
+    @include flex-align-center()
+    
     height: 4.5rem
 
     padding: 0 1rem
@@ -14,8 +14,8 @@
     box-shadow: $shadown-1
 
   &-profile
-    display: flex
-    align-items: center
+    @include flex-align-center()
+
     margin-left: auto
 
     > * + *
@@ -23,6 +23,7 @@
 
   &-button
     border: 0
+
     font-size: 1.3rem
     appearance: none
     background-color: transparent

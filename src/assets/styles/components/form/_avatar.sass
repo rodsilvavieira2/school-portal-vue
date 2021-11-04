@@ -9,15 +9,15 @@
   img, span
     position: absolute
     inset: 0
+
   img
     object-fit: cover
     max-width: 100%
     max-height: 100%
 
   span
-    display: flex
-    align-items: center
-    justify-content: center
+    @include flex-center()
+
     text-align: center
     background-color: $blue-400
     letter-spacing: 0.1rem

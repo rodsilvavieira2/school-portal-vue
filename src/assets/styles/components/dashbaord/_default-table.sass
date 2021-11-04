@@ -1,29 +1,34 @@
 .dashboard-default-table
 
   &-wrapper
-    background-color: $gray-700
+    position: relative
+
     margin-top: 1rem
     border-radius: 0.5rem
     padding-bottom: 0.5rem
 
+    background-color: $gray-700
     box-shadow: $shadown-1
+
+    min-height: 15rem
 
     overflow-y: auto
 
     table
       position: relative
-      border-collapse: collapse
+
       text-align: left
       white-space: nowrap
+
       width: 100%
 
       thead
         top: 0
         position: sticky
-        background-color: $gray-700
+        background-color: $blue-600
 
         tr
-          box-shadow: 0 2px 0px $gray-500
+          box-shadow: $neon-blue-100
 
         th
           padding: 1rem
@@ -35,38 +40,59 @@
             padding-top: 1.2rem
 
         td
+          padding: 0.65rem 1rem
+
           color: $gray-300
-          padding: 0.6rem 1rem
           vertical-align: middle
 
           p
             font-size: 0.9rem
+
             overflow: hidden
-            max-width: 24rem
-            max-height: 7rem
             text-overflow: ellipsis
 
+            max-width: 40ch
+            max-height: 7rem
+
+  .status
+    padding: 0.3rem
+    border-radius: 0.5rem
+
+    text-align: center
+    font-weight: 500
+    text-transform: uppercase
+    font-size: 0.85rem
+    color: #fff
+
+  .status-pending
+    background-color: $yellow-400
+    box-shadow: 0 0 4px 1px $yellow-400
+
+  .status-done
+    background-color: $green-500
+    box-shadow: 0 0 4px 1px $green-500
+
+  .status-late
+    background-color: $orange-400
+    box-shadow: 0 0 4px 1px $orange-400
+
+  .status-close
+    background-color: $red-500
+    box-shadow: 0 0 4px 1px $red-500
+
   &-button-wrapper
-    display: flex
-    align-items: center
-    justify-content: center
+    @include flex-center()
 
   &-button
-    display: flex
-    align-items: center
-    justify-content: center
-    font-size: .95rem
-    padding: 0.4rem
-    border: 0
-    border-radius: 0.3rem
-    transition: all 0.3s
-    outline: none
+    @include defaut-button-style()
 
-    &:focus
-      box-shadow: $outline-shadown
-    &:hover
-      background-color: $gray-400
+    box-shadow: none
 
-    svg
-      flex-shrink: 0
-      color: $blue-500
+  &-loading
+    @include flex-center()
+
+    position: absolute
+    inset: 0
+    z-index: 1
+
+    background-color: $gray-700

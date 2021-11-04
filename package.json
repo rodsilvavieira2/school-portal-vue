@@ -6,17 +6,22 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "mocked:server": "json-server -p 3000 -w db.js -d 2000"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "axios": "^0.24.0",
     "chart.js": "^3.6.0",
     "core-js": "^3.6.5",
     "dayjs": "^1.10.7",
+    "es6-promise": "^4.2.8",
+    "faker": "^5.5.3",
     "popper.js": "^1.16.1",
     "v-calendar": "^3.0.0-alpha.6",
+    "validator": "^13.6.0",
     "vue": "^3.0.0",
     "vue-chartjs": "^3.5.1",
     "vue-router": "^4.0.0-0",
@@ -24,6 +29,7 @@
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
+    "@types/validator": "^13.6.6",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
@@ -40,6 +46,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.0.0",
+    "json-server": "^0.17.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",

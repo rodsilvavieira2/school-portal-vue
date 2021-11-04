@@ -1,0 +1,39 @@
+@mixin defaut-button-style()
+  display: flex
+  align-items: center
+  justify-content: center
+
+  padding: 0.5rem
+
+  font-family: inherit
+  font-size: 0.95rem
+  font-weight: 400
+  color: #ffff
+
+  background-color: $blue-600
+  border: 0
+  border-radius: 0.3rem
+
+  transition: all 0.3s
+
+  box-shadow: $neon-blue-100
+  outline: none
+
+  svg
+    flex-shrink: 0
+    
+  &:focus
+    box-shadow: 0 0 0 3px $gray-400
+
+  &:hover
+    background-color: $blue-500
+
+@mixin flex-align-center()
+  display: flex
+  align-items: center
+
+@mixin flex-center()
+  display: flex
+  align-items: center
+  justify-content: center
+  

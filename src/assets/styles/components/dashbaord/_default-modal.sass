@@ -1,0 +1,164 @@
+.default-modal-overlay
+  position: fixed
+  display: flex
+  align-items: center
+  justify-content: center
+  inset: 0
+
+  z-index: 9999
+
+  background-color: rgba(0,0 ,0 ,0.5)
+
+.default-modal-content
+  position: relative
+
+  color: #fff
+  background-color: $gray-700
+  width: 100%
+  max-width: 40rem
+  border-radius: 0.5rem
+
+  box-shadow: $shadown-1
+
+  &:focus
+    box-shadow: $outline-shadown
+
+  h3
+    font-size: 1.3rem
+    background-color: $blue-600
+    margin-bottom: 0.5rem
+    padding: 1rem
+
+  &-close-button
+    display: flex
+    align-items: center
+    justify-items: center
+
+    position: absolute
+    right: 1rem
+    top: 1rem
+
+    padding: 0.4rem
+
+    border: 0
+    border-radius: 0.3rem
+
+    background-color: $gray-200
+
+    transition: all 0.3s
+
+    &:hover
+      background-color: $gray-300
+
+    &:focus
+      box-shadow: $outline-shadown
+
+    svg
+      flex-shrink: 0
+      color: $blue-500
+      font-size: 1.1rem
+
+.more-subject-detail-modal
+  overflow: hidden
+
+  &-content
+
+    max-height: 70vh
+    overflow-y: auto
+    text-align: justify
+    color: $gray-400
+
+    padding: 1rem 1.5rem
+
+.default-modal-table
+  width: 100%
+  thead
+    tr
+      box-shadow: 0 3px 0 $gray-500
+      th
+        padding: 0.5rem
+        
+  tbody
+    tr
+      td
+        max-width: 30ch
+        padding: 0.5rem
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+
+    tr:first-child
+      td
+        padding-top: 1.2rem
+
+  &-button
+    display: flex
+    align-items: center
+    justify-content: center
+
+    text-transform: capitalize
+
+    font-family: inherit
+    font-weight: 500
+    font-size: 0.9rem
+    color: #fff
+
+    background-color: $blue-600
+
+    border: 0
+    border-radius: 0.3rem
+
+    padding: 0.5rem
+
+    outline: transparent
+
+    &:focus
+      box-shadow: 0 0 0 3px $gray-400
+
+  &-link-row
+    a
+      display: flex
+      align-items: center
+      justify-content: center
+
+      &:hover
+        color: $blue-500
+
+  &-center-cell
+    text-align: center
+
+  &-center-display
+    display: flex
+    align-items: center
+    justify-content: center
+
+.exercise-response-modal
+  &-input
+    display: flex
+    align-items: center
+    justify-content: center
+
+    height: 15rem
+
+    &-wrapper
+      display: flex
+      align-items: center
+      justify-content: center
+
+      height: 50%
+      width: 90%
+
+      border: 2px dashed $gray-400
+
+      strong
+        font-size: 1.1rem
+      input
+        appearance: none
+        height: 0
+        width: 0
+
+    .ready-to-drop
+      border-color: $green-500
+
+  table + table
+    margin-top: 1rem

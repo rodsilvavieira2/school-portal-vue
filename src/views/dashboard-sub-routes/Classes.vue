@@ -21,7 +21,6 @@
     </div>
 
     <div class="dashboard-default-table classes-table">
-
       <div class="dashboard-default-table-wrapper">
         <table>
           <thead>
@@ -37,47 +36,87 @@
           </thead>
 
           <tbody>
-            <tr>
+            <tr v-for="item in classes" :key="item.id">
               <td>
-                <time> 21/10/09 </time>
+                <time> {{ item.date }} </time>
               </td>
 
               <td class="classes-table-discipline">
-                <p>APLICATIVOS PARA DESENVOLVIMENTO DE SISTEMAS LOCAL E WEB</p>
+                <p>{{ item.discipline }}</p>
               </td>
 
               <td class="classes-table-content">
                 <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim
-                  inventore consectetur Lorem ipsum dolor sit, amet consectetur
-                  adipisicing elit. Tempore aspernatur, architecto numquam
-                  impedit nam voluptate quod sunt cumque veritatis similique ad
-                  aliquam eaque nihil voluptatem nemo fuga magnam officiis
-                  dolore?
+                  {{ item.content }}
                 </p>
               </td>
 
               <td>
                 <div class="dashboard-default-table-button-wrapper">
-                  <button class="dashboard-default-table-button">
-                    <fa icon="paperclip" />
+                  <button
+                    @click="openModal(item.id)"
+                    aria-label="open current class material"
+                    class="dashboard-default-table-button"
+                  >
+                    <fa icon="inbox" />
                   </button>
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
+
+        <DashboardTableLoading />
+
+        <ClassMaterialModal
+          @on-request-close="onRequestClose"
+          :isModalOpen="isModalOpen"
+          :materials="currentMaterials"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { Select } from '../../components/from'
+import { mapGetters } from 'vuex'
+import {
+  DashboardTableLoading,
+  ClassMaterialModal,
+  Select
+} from '../../components'
 
 export default {
   components: {
+    DashboardTableLoading,
+    ClassMaterialModal,
     Select
+  },
+  data () {
+    return {
+      isModalOpen: false,
+      currentMaterials: []
+    }
+  },
+  methods: {
+    ...mapGetters(['getClasses']),
+    openModal (id) {
+      const materials = this.classes.find(
+        (item) => item.id === id
+      ).materials
+
+      this.currentMaterials = materials
+
+      this.isModalOpen = true
+    },
+    onRequestClose () {
+      this.isModalOpen = false
+    }
+  },
+  computed: {
+    classes () {
+      return this.getClasses()
+    }
   }
 }
 </script>

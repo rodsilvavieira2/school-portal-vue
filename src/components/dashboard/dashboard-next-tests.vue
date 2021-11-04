@@ -17,83 +17,37 @@
         </thead>
 
         <tbody>
-          <tr v-for="item in items" :key="item.id">
+          <tr v-for="item in tests" :key="item.id">
             <td>{{ item.discipline }}</td>
 
             <td>{{ item.professor }}</td>
 
-            <td>{{ item.note }}</td>
+            <td>{{ item.maxNote }}</td>
 
             <td>{{ item.testDate }}</td>
           </tr>
         </tbody>
       </table>
+
+      <DashboardTableLoading />
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import DashboardTableLoading from './dashboard-table-loading.vue'
+
 export default {
-  data () {
-    return {
-      items: [
-        {
-          id: 1,
-          professor: 'Andre',
-          discipline: 'Web development',
-          note: 10,
-          testDate: new Date().toLocaleString()
-        },
-        {
-          id: 2,
-          professor: 'Andre',
-          discipline: 'Web development',
-          note: 10,
-          testDate: new Date().toLocaleString()
-        },
-        {
-          id: 3,
-          professor: 'Andre',
-          discipline: 'Web development',
-          note: 10,
-          testDate: new Date().toLocaleString()
-        },
-        {
-          id: 4,
-          professor: 'Andre',
-          discipline: 'Web development',
-          note: 10,
-          testDate: new Date().toLocaleString()
-        },
-        {
-          id: 5,
-          professor: 'Andre',
-          discipline: 'Web development',
-          note: 10,
-          testDate: new Date().toLocaleString()
-        },
-        {
-          id: 6,
-          professor: 'Andre',
-          discipline: 'Web development',
-          note: 10,
-          testDate: new Date().toLocaleString()
-        },
-        {
-          id: 7,
-          professor: 'Andre',
-          discipline: 'Web development',
-          note: 10,
-          testDate: new Date().toLocaleString()
-        },
-        {
-          id: 8,
-          professor: 'Andre',
-          discipline: 'Web development',
-          note: 10,
-          testDate: new Date().toLocaleString()
-        }
-      ]
+  components: {
+    DashboardTableLoading
+  },
+  methods: {
+    ...mapGetters(['getNextTests'])
+  },
+  computed: {
+    tests () {
+      return this.getNextTests()
     }
   }
 }

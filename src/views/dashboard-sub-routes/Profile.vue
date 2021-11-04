@@ -9,7 +9,7 @@
             <div class="profile-form-img-wrapper">
               <img
                 src="https://i.pinimg.com/originals/76/06/47/7606476846f46b7fd863a0707cd95fe0.jpg"
-                alt="Jessica Nunes"
+                :alt="user.name"
               />
               <input type="file" />
 
@@ -18,7 +18,7 @@
               </div>
             </div>
 
-            <strong>Jessica Nunes</strong>
+            <strong>{{ user.name }}</strong>
           </div>
         </div>
 
@@ -29,7 +29,7 @@
             <label>
               Name:
 
-              <input type="text" />
+              <input type="text" v-model="user.name" readonly />
             </label>
           </div>
 
@@ -37,7 +37,7 @@
             <label>
               Email:
 
-              <input type="email" />
+              <input type="email" v-model="user.email" readonly />
             </label>
           </div>
         </div>
@@ -45,3 +45,18 @@
     </div>
   </div>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+  methods: {
+    ...mapGetters(['getUserProfileData'])
+  },
+  computed: {
+    user () {
+      return this.getUserProfileData()
+    }
+  }
+}
+</script>

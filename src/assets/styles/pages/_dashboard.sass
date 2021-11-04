@@ -12,14 +12,16 @@
 
     height: calc(100vh - 6rem)
     width: 100%
-    
+
     overflow-y: auto
-    
+
     padding: 0 0.7rem 0.7rem 0.7rem
 
     > div + div
       margin-top: 2rem
 
 .default-select-period
+  @include flex-align-center()
+  
   > label + label
     margin-left: 1rem

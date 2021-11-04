@@ -1,0 +1,20 @@
+.default-spinner
+  display: inline-block
+  width: 2.5rem
+  height: 2.5rem
+  border-radius: 2.5rem
+  
+  border: 5px solid $blue-600
+  box-shadow: $neon-blue-100
+
+  border-bottom-color: #fff
+  border-top-color: #fff 
+  
+  animation: spinner 0.5s linear infinite
+
+@keyframes spinner
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+    

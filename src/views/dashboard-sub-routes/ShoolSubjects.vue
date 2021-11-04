@@ -16,14 +16,17 @@
           </thead>
 
           <tbody>
-            <tr>
+            <tr v-for="item in disciplines" :key="item.id">
               <td class="school-subjects-table-discipline-row">
-                <p>APLICATIVOS PARA DESENVOLVIMENTO DE SISTEMAS LOCAL E WEB</p>
+                <p>{{ item.name }}</p>
               </td>
 
               <td>
                 <div class="dashboard-default-table-button-wrapper">
-                  <button class="dashboard-default-table-button">
+                  <button
+                    @click="openMoreDetailsModal(item.id)"
+                    class="dashboard-default-table-button"
+                  >
                     <fa icon="eye" />
                   </button>
                 </div>
@@ -31,7 +34,54 @@
             </tr>
           </tbody>
         </table>
+
+        <DashboardTableLoading />
+
+        <MoreSubjectDetailModal
+          @on-request-close="onRequestClose"
+          :isModalOpen="isModalOpen"
+          :modalContent="currentModalContent"
+        />
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import { mapActions, mapGetters } from 'vuex'
+import { DashboardTableLoading, MoreSubjectDetailModal } from '../../components'
+
+export default {
+  components: {
+    DashboardTableLoading,
+    MoreSubjectDetailModal
+  },
+  data () {
+    return {
+      isModalOpen: false,
+      currentModalContent: ''
+    }
+  },
+  methods: {
+    ...mapActions(['loadUserCourse']),
+    ...mapGetters(['getUseDisciplines']),
+    openMoreDetailsModal (id) {
+      this.isModalOpen = true
+      this.currentModalContent = this.disciplines.find(
+        (item) => item.id === id
+      ).description
+    },
+    onRequestClose () {
+      this.isModalOpen = false
+    }
+  },
+  mounted () {
+    this.loadUserCourse()
+  },
+  computed: {
+    disciplines () {
+      return this.getUseDisciplines()
+    }
+  }
+}
+</script>
