@@ -3,7 +3,7 @@
 
   &-container
     @include flex-align-center()
-    
+
     height: 4.5rem
 
     padding: 0 1rem
@@ -12,6 +12,10 @@
     border-radius: 0.4rem
 
     box-shadow: $shadown-1
+
+    &-mobile-toggle-button
+      @media (min-width: $break-p-lg)
+        display: none !important
 
   &-profile
     @include flex-align-center()

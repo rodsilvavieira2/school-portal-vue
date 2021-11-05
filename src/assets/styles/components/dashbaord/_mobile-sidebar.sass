@@ -1,21 +1,24 @@
-.dashboard-sidebar
+.mobile-sidebar
+  position: fixed
+  top: 0
+  bottom: 0
+
   padding: 0.7rem
-  width: 20%
+  width: 70vw
 
-  display: none
+  z-index: 99999
 
-  @media (min-width: $break-p-lg)
-    display: block
+  transform: translateX(-100%)
 
-  @media ( min-width: $break-p-md)
-    width: 25%
-
-  @media ( min-width: $break-p-lg)
-    width: 20%
-    
   transition: all 0.5s ease
 
   flex-shrink: 0
+
+  @media (min-width: $break-p-lg)
+    display: none
+
+  @media (min-width: $break-p-sm)
+    width: 50vw
 
   &-container
     border-radius: 0.5rem
@@ -27,6 +30,8 @@
     transition: all 0.5s ease
 
     box-shadow: $shadown-1
+
+    overflow-y: auto
 
   &-header
     @include flex-center()
@@ -92,30 +97,11 @@
     background-color: $blue-600
     box-shadow: $neon-blue-100
 
-.collapse-sidebar
-  width: 6.5rem
+.show-mobile-sidebar
+  transform: translateX(0)
 
-  .dashboard-sidebar-container
-    width: 5rem
+.mobile-sidebar-overlay
+  position: absolute
+  inset: 0
 
-  .dashboard-sidebar-header
-    justify-content: center
-
-    div
-      display: none
-
-  .dashboard-sidebar-nav-link
-    @include flex-center()
-
-    a
-      @include flex-center()
-      width: 3rem
-
-      border-radius: 3rem
-      transition: all 1s ease
-
-      span
-        display: none
-
-      svg
-        margin: 0
+  background-color: rgba(0, 0, 0 ,0.5)

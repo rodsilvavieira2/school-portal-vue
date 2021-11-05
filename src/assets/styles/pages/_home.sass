@@ -46,7 +46,14 @@
         box-shadow: $neon-blue-100
   &-main
     display: flex
-    height: calc( 100vh - 5rem )
+    flex-wrap: wrap
+    padding: 1rem 0
+
+    height: 100vh
+
+    @media ( min-width: $break-p-md)
+      height: calc( 100vh - 5rem )
+      padding: 1rem
 
     > div
       display: flex
@@ -54,12 +61,18 @@
       justify-content: center
 
       flex: 1 0 auto
-      width: 50%
+      width: 100%
+
+      @media (min-width: $break-p-md)
+        width: 50% !important
 
     &-image
       img
-        max-width: 90%
+        max-width: 75%
         max-height: 90%
+
+        @media (min-width: $break-p-md)
+          max-width: 90%
 
     &-text
       flex-direction: column
@@ -78,5 +91,3 @@
 
     strong
       margin-top: auto
-
-    

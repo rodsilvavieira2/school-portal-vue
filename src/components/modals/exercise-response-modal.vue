@@ -1,6 +1,6 @@
 <template>
   <DefaultModal
-    title="Subject details"
+    title="Exercise responses"
     :isModalOpen="isModalOpen"
     @on-request-close="onRequestClose"
   >
@@ -21,7 +21,10 @@
         >
           <input type="file" ref="inputFileRef" />
 
-          <strong>Drop your file here or clink to chose one</strong>
+          <strong class="exercise-response-modal-desktop-message">Drop your file here or clink to choose one</strong>
+
+          <strong class="exercise-response-modal-mobile-message">Tap to choose a file</strong>
+
         </div>
       </div>
 

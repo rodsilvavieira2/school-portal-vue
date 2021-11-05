@@ -2,6 +2,8 @@
   <div class="container dashboard">
     <dashboard-sidebar />
 
+    <dashboard-mobile-sidebar />
+
     <main class="dashboard-main-content">
       <dashboard-header />
 
@@ -13,13 +15,14 @@
 </template>
 
 <script>
-import { DashboardHeader, DashboardSidebar } from '../components'
+import { DashboardHeader, DashboardSidebar, DashboardMobileSidebar } from '../components'
 import { mapActions } from 'vuex'
 
 export default {
   components: {
     DashboardHeader,
-    DashboardSidebar
+    DashboardSidebar,
+    DashboardMobileSidebar
   },
   methods: {
     ...mapActions(['getCurrentUser'])

@@ -1,6 +1,13 @@
 <template>
   <header class="dashboard-header">
     <div class="dashboard-header-container">
+      <IconButton
+          class="dashboard-header-container-mobile-toggle-button"
+          ariaLabel="collapse mobile sidebar"
+          icon="bars"
+          @click="toggleMobileSidebar"
+        />
+
       <div class="dashboard-header-profile">
         <button
           class="dashboard-header-button"
@@ -10,7 +17,7 @@
           <fa icon="sign-out-alt" />
         </button>
 
-        <button @click="initToast" class="dashboard-header-button" aria-label="show notifications">
+        <button class="dashboard-header-button" aria-label="show notifications">
           <fa icon="bell" />
         </button>
 
@@ -23,26 +30,20 @@
 </template>
 
 <script>
-import { Avatar } from '../from'
+import { Avatar, IconButton } from '../from'
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   components: {
-    Avatar
+    Avatar,
+    IconButton
   },
   methods: {
     async signOut () {
       this.$router.push({ name: 'Home' })
     },
     ...mapGetters(['getUserProfileData']),
-    ...mapMutations(['makeToast']),
-    initToast () {
-      this.makeToast({
-        status: 'info',
-        title: 'Test',
-        text: 'test test'
-      })
-    }
+    ...mapMutations(['toggleMobileSidebar'])
   },
   computed: {
     user () {

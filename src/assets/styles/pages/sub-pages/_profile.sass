@@ -1,9 +1,19 @@
 .profile-form
   display: flex
+  flex-wrap: wrap
+  flex-direction: column
+
   > div
     flex: 1 0 auto
-    width: 50%
+    width: 100%
 
+  @media (min-width: $break-p-lg)
+    flex-direction: row
+    flex-wrap: nowrap
+
+    > div
+      width: 50% !important
+    
   &-avatar
     display: flex
     flex-direction: column
@@ -67,6 +77,14 @@
 
   &-info
     padding: 1rem
+
+    width: 80% !important
+
+    margin: 0 auto
+
+    @media (min-width: $break-p-lg)
+      margin: 0
+  
     > * + *
       margin-top: 0.5rem
 

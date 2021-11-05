@@ -4,9 +4,9 @@ import { Format } from '../helpers'
 
 export default createStore({
   state: {
-    toasts: [
-    ],
+    toasts: [],
     isLoading: false,
+    isMobileSidebarCollapsed: true,
     user: {
       id: null,
       name: '',
@@ -43,6 +43,9 @@ export default createStore({
         id,
         ...toast
       })
+    },
+    toggleMobileSidebar (state) {
+      state.isMobileSidebarCollapsed = !state.isMobileSidebarCollapsed
     }
   },
   getters: {
@@ -64,7 +67,8 @@ export default createStore({
         name,
         email
       }
-    }
+    },
+    getIsMobileSidebarOpen: (state) => state.isMobileSidebarCollapsed
   },
   actions: {
     async getCurrentUser ({ commit, dispatch }, { id }) {
