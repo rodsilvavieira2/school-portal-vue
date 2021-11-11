@@ -2,20 +2,23 @@
   <div
     v-on:animationend="emitClose"
     :style="[getContainerStyle(type), animation]"
+    role="alert"
     class="default-container-toast-item"
+    aria-labelledby="toast-title"
   >
     <div class="default-container-toast-item-icon">
       <fa :icon="typeIcons[type].icon" />
     </div>
 
     <div class="default-container-toast-item-text">
-      <strong>{{ title }}</strong>
+      <strong id="toast-title">{{ title }}</strong>
 
       <p>{{ text }}</p>
     </div>
 
     <button
       @click="onRequestClose"
+      aria-label="close toast"
       class="default-container-toast-item-button"
       type="button"
     >

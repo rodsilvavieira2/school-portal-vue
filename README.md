@@ -1,29 +1,9 @@
 # school-portal
 
-## Project setup
-```
-yarn install
-```
+## Description
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+A fully responsive school dashboard for students using vue.
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## Preview
 
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Home

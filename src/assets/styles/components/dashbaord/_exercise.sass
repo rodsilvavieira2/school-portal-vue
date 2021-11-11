@@ -1,0 +1,174 @@
+.exercises-sub-router
+  .rotate-arrow
+    transform: rotate(90deg)
+
+  .item-active
+    background-color: $gray-600
+    box-shadow: $shadown-1
+
+  &-loading
+    display: flex
+    align-items: center
+    justify-content: center
+
+    height: 100%
+    width: 100%
+
+.exercise-display-data
+  > div + div
+    margin-top: 1rem
+
+  &-item
+    &-icon-wrapper
+      display: flex
+      align-items: center
+      justify-content: center
+
+      width: 1.5rem
+
+    &-button
+      display: flex
+      align-items: center
+      justify-content: space-between
+
+      background-color: $blue-600
+
+      font-weight: 500
+
+      color: #fff
+
+      width: 100%
+
+      padding: 1rem
+
+      border: 0
+      border-radius: 0.3rem
+
+      font-family: inherit
+      font-size: 0.95rem
+
+      text-transform: capitalize
+
+      outline: transparent
+
+      transition: all 0.3s
+
+      &:focus
+        box-shadow: 0 0 0 4px $gray-400
+
+      &:hover
+        filter: brightness(0.9)
+
+      > svg
+        flex-shrink: 0
+
+        transition: all 0.3s
+
+        transform: rotate(0deg)
+
+      span
+        display: inline-block
+        white-space: nowrap
+        margin-right: 0.5rem
+        overflow: hidden
+        text-overflow: ellipsis
+
+        svg
+          margin-right: 0.5rem
+          font-size: 1.1rem
+
+    &-collapse-zone
+      display: none
+
+      overflow: hidden
+      color: $gray-400
+
+      ul
+        padding: 1rem
+        li
+          svg
+            margin-right: 0.5rem
+            color: $gray-300
+
+          strong
+            margin-right: 0.3rem
+          a
+            &:hover
+              color: $blue-600
+
+        li + li
+          margin-top: 0.3rem
+
+      &-item
+
+        display: flex
+        align-items: center
+
+        > span
+          white-space: nowrap
+          overflow: hidden
+          text-overflow: ellipsis
+
+  &-sub-item-button
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    color: inherit
+    font-family: inherit
+    font-size: 1rem
+    font-weight: 500
+
+    background-color: inherit
+
+    border: 0
+    border-radius: 0.3rem
+
+    width: 100%
+
+    padding: 0.5rem
+    margin-top: 0.5rem
+
+    outline: none
+
+    transition: all 0.3s
+
+    &:focus, &:hover
+      background-color: $gray-600
+      box-shadow: $shadown-1
+
+    svg
+      color: inherit
+      margin-left: auto
+
+      flex-shrink: 0
+
+      transition: all 0.3s
+
+      transform: rotate(0deg)
+
+.exercise-item-status
+  padding: 0 .3rem
+  border-radius: 0.5rem
+
+  text-align: center
+  font-weight: 500
+  text-transform: uppercase
+  font-size: 0.85rem
+  color: #fff
+
+.exercise-item-status-pending
+  background-color: $yellow-400
+  box-shadow: 0 0 3px 1px $yellow-400
+
+.exercise-item-status-done
+  background-color: $green-500
+  box-shadow: 0 0 3px 1px $green-500
+
+.exercise-item-status-late
+  background-color: $orange-400
+  box-shadow: 0 0 3px 1px $orange-400
+
+.exercise-item-status-close
+  background-color: $red-500
+  box-shadow: 0 0 3px 1px $red-500

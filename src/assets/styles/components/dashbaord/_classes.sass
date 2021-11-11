@@ -1,0 +1,111 @@
+.classes-sub-router
+  .rotate-arrow
+    transform: rotate(90deg)
+
+  .sub-item-active
+    background-color: $gray-600 !important
+    box-shadow: $shadown-1
+
+  &-loading
+    display: flex
+    align-items: center
+    justify-content: center
+
+    height: 100%
+    width: 100%
+
+  .classes-data-display
+    > div + div
+      margin-top: 1rem
+
+    .classes-data-item
+
+      &-button
+        display: flex
+        align-items: center
+        justify-content: space-between
+
+        padding: 1rem 
+
+        color: #fff
+
+        background-color: $blue-600
+
+        width: 100%
+        border: 0
+        border-radius: 0.3rem
+
+        transition: all 0.3s
+
+        box-shadow: $shadown-1
+
+        font-family: inherit
+        font-size: 0.95rem
+
+        outline: transparent
+
+        &:focus
+          box-shadow: 0 0 0 3px $gray-400
+
+        &:hover
+          filter: brightness(0.9)
+
+        svg
+          flex-shrink: 0
+          margin-right: 0.5rem
+          transition: all 0.3s
+
+      &-collapse-zone
+        width: 100%
+        display: none
+        overflow: hidden
+
+        transition: all 0.3s
+
+        margin-top: 0.5rem
+
+        ul
+          padding: 0.6rem 0
+
+          li
+            color: $gray-400
+            strong
+              margin-right: 0.5rem
+
+      &-classes-button
+        display: flex
+        align-items: center
+
+        margin-top: 0.5rem
+
+        border: 0
+        border-radius: 0.3rem
+        padding: 0.5rem
+        background-color: inherit
+        color: $gray-400
+
+        width: 100%
+
+        font-family: inherit
+        font-size: 1rem
+        font-weight: 600
+
+        svg
+          margin-left: auto
+          transition: all 0.3s
+
+        &:focus, &:hover
+          background-color: $gray-600
+          box-shadow: $shadown-1
+
+      &-sub-collapse-zone
+        ul
+          padding: 1rem
+
+          li
+            padding: 1rem 0
+
+            strong
+              margin-right: 0.5rem
+          li + li
+            border-top: 1px solid $gray-500

@@ -4,6 +4,8 @@ import DashboardLastExercises from './dashboard-last-exercises.vue'
 import DashBoardNextTests from './dashboard-next-tests.vue'
 import DashboardTableLoading from './dashboard-table-loading.vue'
 import DashboardMobileSidebar from './dashboard-mobile-sidebar.vue'
+import ExerciseDataDisplay from './exercise-data-display.vue'
+import ClassesDataDisplay from './classes-data-display.vue'
 
 export {
   DashboardHeader,
@@ -11,5 +13,7 @@ export {
   DashboardLastExercises,
   DashBoardNextTests,
   DashboardTableLoading,
-  DashboardMobileSidebar
+  DashboardMobileSidebar,
+  ExerciseDataDisplay,
+  ClassesDataDisplay
 }

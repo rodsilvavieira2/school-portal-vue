@@ -3,9 +3,12 @@
     <div
       class="default-modal-content more-subject-detail-modal"
       ref="modal"
+      role="dialog"
       tabindex="-1"
+      aria-labelledby="title"
+      aria-modal="true"
     >
-      <h3>{{ title }}</h3>
+      <h3 id="title">{{ title }}</h3>
 
       <div class="more-subject-detail-modal-content">
         <slot />

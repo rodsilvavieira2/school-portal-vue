@@ -1,6 +1,6 @@
 <template>
   <div class="container home-page">
-    <HomeHeader />
+    <home-header />
 
     <main>
       <div class="home-page-main">

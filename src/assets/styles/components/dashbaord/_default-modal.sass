@@ -20,6 +20,8 @@
 
   box-shadow: $shadown-1
 
+  animation: enter-mdoal 0.5s ease-in-out 
+
   @media (min-width: $break-p-sm)
     max-width: 35rem
 
@@ -180,3 +182,12 @@
 
   table + table
     margin-top: 1rem
+
+@keyframes enter-mdoal
+  0%
+    opacity: 0
+    transform: scale(0.5)
+  100%
+    opacity: 1
+    transform: scale(1)
+    

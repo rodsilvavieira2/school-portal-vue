@@ -4,7 +4,7 @@
 
     <input :type="type" v-model="inputValue" :class="isError" />
 
-    <div class="default-input-error-message" v-if="error">{{ error }}</div>
+    <div role="alert" class="default-input-error-message" v-if="error">{{ error }}</div>
   </label>
 </template>
 

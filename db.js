@@ -23,8 +23,8 @@ const exercises = Array.from({ length: 30 }).map((_, i) => ({
   professor: faker.name.firstName(),
   discipline: faker.lorem.words(5),
   status: status[faker.datatype.number(3)],
-  request_at: faker.date.past(),
-  end_date: faker.date.future(),
+  requestAt: faker.date.past(),
+  endDate: faker.date.future(),
   responses: Array.from({ length: 10 }).map((_, j) => ({
     id: 1 + j,
     fileName: faker.random.words(3),
@@ -33,22 +33,22 @@ const exercises = Array.from({ length: 30 }).map((_, i) => ({
   }))
 }))
 
+const disciplines = Array.from({ length: 15 }).map((_, i) => ({
+  id: i + 1,
+  name: faker.lorem.words(5),
+  description: faker.lorem.words(200)
+}))
+
 const classes = Array.from({ length: 40 }).map((_, i) => ({
   id: i + 1,
   date: faker.date.soon(),
-  discipline: faker.lorem.words(5),
+  discipline: disciplines[faker.datatype.number(12)].name,
   content: faker.lorem.words(20),
   materials: Array.from({ length: 10 }).map((_, j) => ({
     id: 1 + j,
     name: faker.random.words(3),
     link: faker.image.city()
   }))
-}))
-
-const disciplines = Array.from({ length: 15 }).map((_, i) => ({
-  id: i + 1,
-  name: faker.lorem.words(5),
-  description: faker.lorem.words(200)
 }))
 
 const courses = Array.from({ length: 10 }).map((_, i) => ({
