@@ -2,9 +2,9 @@
   <div class="sub-router-container sub-router-home">
     <h2>Home</h2>
 
-    <DashboardLastExercises />
+    <dashboard-last-exercises />
 
-    <DashBoardNextTests />
+    <dashBoard-next-tests />
   </div>
 </template>
 

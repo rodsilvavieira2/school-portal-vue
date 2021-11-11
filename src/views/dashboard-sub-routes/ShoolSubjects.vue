@@ -35,9 +35,9 @@
           </tbody>
         </table>
 
-        <DashboardTableLoading />
+        <dashboard-table-loading />
 
-        <MoreSubjectDetailModal
+        <more-subject-detail-modal
           @on-request-close="onRequestClose"
           :isModalOpen="isModalOpen"
           :modalContent="currentModalContent"

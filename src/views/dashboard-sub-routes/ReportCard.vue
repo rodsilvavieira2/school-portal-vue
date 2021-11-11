@@ -36,7 +36,7 @@
           </tbody>
         </table>
 
-        <DashboardTableLoading />
+        <dashboard-table-loading />
 
       </div>
     </div>
